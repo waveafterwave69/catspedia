@@ -17,3 +17,9 @@ body {
     padding: 0 var(--container-padding-x);
     margin: 0 auto;
 }
+
+@media (max-width: 500px) {
+    .container {
+        padding: 0 var(--container-padding-mobile-x);
+    }
+}

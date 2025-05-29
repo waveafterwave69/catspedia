@@ -1,7 +1,18 @@
+import { Route, Routes } from 'react-router'
+import { routesConfig } from './routes/routesConfig'
+import Header from './components/Header/Header'
+
 const App: React.FC = () => {
     return (
         <>
-            <div className="container">asda</div>
+            <Header />
+            <div className="container">
+                <Routes>
+                    {routesConfig.map(({ page, url }) => (
+                        <Route path={url} element={page} />
+                    ))}
+                </Routes>
+            </div>
         </>
     )
 }
