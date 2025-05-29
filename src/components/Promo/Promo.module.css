@@ -186,7 +186,7 @@
 
 @media (max-width: 425px) {
     .promo {
-        margin-top: 30px;
+        margin-top: 40px;
     }
 
     .promo__row {
@@ -194,8 +194,8 @@
     }
 
     .text__title {
-        font-size: 44px;
-        margin-bottom: 20px;
+        font-size: 46px;
+        margin-bottom: 25px;
     }
 
     .text__title::after {
@@ -209,7 +209,7 @@
         text-align: center;
         font-size: 18px;
         width: 250px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
 
     .text__button {
@@ -219,7 +219,7 @@
     }
 
     .img__content {
-        width: 270px;
+        width: 290px;
         right: 23px;
     }
 
@@ -229,5 +229,4 @@
         font-size: 20px;
         padding: 10px 15px;
     }
-
 }
