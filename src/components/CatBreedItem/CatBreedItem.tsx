@@ -1,12 +1,22 @@
+import { useState } from 'react'
 import { useGetCatsImgQuery } from '../../store/api/apiNews/apiCats'
 
 import styles from './CatBreedItem.module.css'
 
+import star from '../../img/star.svg'
+import starNone from '../../img/starNone.svg'
+
 const CatBreedItem: React.FC<{
     breedId: string
     name: string
-}> = ({ breedId, name }) => {
+    button: boolean
+}> = ({ breedId, name, button }) => {
     const { data, isLoading } = useGetCatsImgQuery(breedId)
+    const [fav, setFav] = useState(false)
+
+    const addToFav = () => {
+        setFav((prev) => !prev)
+    }
 
     return (
         <div>
@@ -14,11 +24,30 @@ const CatBreedItem: React.FC<{
                 <>
                     <div className={styles.cat}>
                         <img
-                            src={data[0].url}
+                            src={data[0]?.url}
                             alt={name}
-                            className={styles.img}
+                            className={styles.image}
                         />
+                        {button && (
+                            <img
+                                src={fav ? star : starNone}
+                                className={styles.star}
+                                style={{ width: '25px' }}
+                            ></img>
+                        )}
                         <h3 className={styles.title}>{name}</h3>
+                        {button && (
+                            <button
+                                onClick={addToFav}
+                                className={
+                                    fav
+                                        ? `${styles.cats__button} ${styles.active}`
+                                        : `${styles.cats__button}`
+                                }
+                            >
+                                {fav ? 'Remove from Stars' : 'Add to Stars'}
+                            </button>
+                        )}
                     </div>
                 </>
             )}

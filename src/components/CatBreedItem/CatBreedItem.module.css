@@ -11,9 +11,60 @@
     font-size: 22px;
 }
 
+.cats__button {
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    background-color: var(--color-purple);
+    padding: 10px 0px;
+    color: var(--color-white);
+}
+
+.cat {
+    position: relative;
+}
+
+.star {
+    position: absolute;
+    right: 15px;
+    top: -85px;
+}
+
+.active {
+    background-color: var(--color-green);
+    color: var(--color-black);
+}
+
+@media (max-width: 768px) {
+    .star {
+        position: absolute;
+        right: 15px;
+        top: -55px;
+    }
+
+    .cats__button {
+        font-size: 16px;
+        width: 100%;
+        padding: 8px 0px;
+    }
+}
+
+@media (max-width: 425px) {
+    .star {
+        position: absolute;
+        right: 5px;
+        top: -35px;
+    }
+
+    .cats__button {
+        font-size: 14px;
+        width: 100%;
+        padding: 8px 0px;
+    }
+}
+
 @media (max-width: 425px) {
     .title {
-
         font-size: 18px;
     }
 }

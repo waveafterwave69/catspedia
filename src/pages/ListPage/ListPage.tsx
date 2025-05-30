@@ -1,5 +1,16 @@
+import { useEffect } from 'react'
+import CatsList from '../../components/CatsList/CatsList'
+
 const ListPage: React.FC = () => {
-    return <></>
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    return (
+        <>
+            <CatsList />
+        </>
+    )
 }
 
 export default ListPage

@@ -16,6 +16,7 @@ const Breeds: React.FC = () => {
                     <li key={data[0].id} className={styles.breeds__item}>
                         <Link to="/">
                             <CatBreedItem
+                                button={false}
                                 breedId={data[0].id}
                                 name={data[0].name}
                             />
@@ -24,6 +25,7 @@ const Breeds: React.FC = () => {
                     <li key={data[1].id} className={styles.breeds__item}>
                         <Link to="/">
                             <CatBreedItem
+                                button={false}
                                 breedId={data[1].id}
                                 name={data[1].name}
                             />
@@ -32,6 +34,7 @@ const Breeds: React.FC = () => {
                     <li key={data[2].id} className={styles.breeds__item}>
                         <Link to="/">
                             <CatBreedItem
+                                button={false}
                                 breedId={data[2].id}
                                 name={data[2].name}
                             />
@@ -39,7 +42,7 @@ const Breeds: React.FC = () => {
                     </li>
                 </ul>
             )}
-            <Link to="/" className={styles.breeds__button}>
+            <Link to="/list" className={styles.breeds__button}>
                 Look
             </Link>
         </section>
