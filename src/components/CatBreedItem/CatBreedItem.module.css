@@ -52,15 +52,10 @@
 @media (max-width: 425px) {
     .star {
         position: absolute;
-        right: 5px;
-        top: -35px;
+        right: 10px;
+        top: -70px;
     }
 
-    .cats__button {
-        font-size: 14px;
-        width: 100%;
-        padding: 8px 0px;
-    }
 }
 
 @media (max-width: 425px) {

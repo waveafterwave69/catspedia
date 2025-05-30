@@ -30,9 +30,10 @@ const CatBreedItem: React.FC<{
                         />
                         {button && (
                             <img
+                                onClick={addToFav}
                                 src={fav ? star : starNone}
                                 className={styles.star}
-                                style={{ width: '25px' }}
+                                style={{ width: '35px' }}
                             ></img>
                         )}
                         <h3 className={styles.title}>{name}</h3>

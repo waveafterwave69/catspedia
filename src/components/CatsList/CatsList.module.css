@@ -83,8 +83,8 @@
     }
 
     .list__item img {
-        width: 230px;
-        height: 160px;
+        width: 260px;
+        height: 195px;
         margin-bottom: 8px;
     }
 
@@ -120,24 +120,4 @@
         top: -1px;
     }
 
-    .cats__list {
-        column-gap: 10px;
-        row-gap: 15px;
-    }
-
-    .list__item img {
-        width: 145px;
-        height: 110px;
-        margin-bottom: 8px;
-    }
-
-    .list__item h3 {
-        font-size: 16px;
-        width: 100px;
-        margin-bottom: 15px;
-    }
-
-    .list__item {
-        padding: 12px 10px;
-    }
 }
