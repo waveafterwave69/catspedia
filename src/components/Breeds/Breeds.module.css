@@ -1,0 +1,173 @@
+.breeds {
+    margin-top: 220px;
+}
+
+.breeds__title {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+    color: var(--color-black);
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.breeds__title::after {
+    content: '';
+    width: 200px;
+    height: 50px;
+    z-index: -1;
+    background-color: var(--color-green);
+    position: absolute;
+    left: 0;
+
+}
+
+.breeds__list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    justify-content: center;
+}
+
+.breeds__item img {
+    width: 370px;
+    height: 340px;
+}
+
+.breeds__button {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    padding: 12px 55px;
+    background-color: var(--color-purple);
+    width: 250px;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--color-white);
+}
+
+.breeds__button:hover {
+    background-color: var(--color-green);
+    color: var(--color-black);
+}
+
+@media (max-width: 1440px) {
+    .breeds__item img {
+        width: 300px;
+        height: 270px;
+    }
+
+    .breeds__list {
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .breeds__item img {
+        width: 300px;
+        height: 270px;
+    }
+
+    .breeds__list {
+        column-gap: 20px;
+        flex-wrap: wrap;
+        row-gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .breeds__item img {
+        width: 250px;
+        height: 220px;
+    }
+
+    .breeds__list {
+        column-gap: 20px;
+    }
+
+    .breeds {
+        margin-top: 200px;
+    }
+
+    .breeds__title {
+        font-size: 28px;
+        margin: 0 auto;
+        width: 700px;
+        text-align: center;
+        color: var(--color-black);
+        margin-bottom: 60px;
+        position: relative;
+        max-width: 420px;
+    }
+
+    .breeds__title::after {
+        content: '';
+        width: 180px;
+        height: 40px;
+        left: 90px;
+        top: 0;
+    }
+
+    .breeds__list {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+
+
+    .breeds__button {
+        margin-top: 45px;
+        padding: 10px 30px;
+        width: 220px;
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 425px) {
+    .breeds__item img {
+        width: 250px;
+        height: 220px;
+    }
+
+    .breeds__list {
+        column-gap: 20px;
+    }
+
+    .breeds {
+        margin-top: 150px;
+    }
+
+    .breeds__title {
+        font-size: 24px;
+        margin: 0 auto;
+        text-align: center;
+        color: var(--color-black);
+        margin-bottom: 30px;
+        position: relative;
+        max-width: 300px;
+    }
+
+    .breeds__title::after {
+        content: '';
+        width: 150px;
+        height: 32px;
+        left: 46px;
+        top: 0;
+    }
+
+    .breeds__list {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+
+    .breeds__button {
+        margin-top: 45px;
+        padding: 10px 25px;
+        width: 160px;
+        font-size: 18px;
+    }
+}
