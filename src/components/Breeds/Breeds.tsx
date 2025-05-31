@@ -4,7 +4,7 @@ import CatBreedItem from '../CatBreedItem/CatBreedItem'
 import { Link } from 'react-router'
 
 const Breeds: React.FC = () => {
-    const { data, isLoading } = useGetCatsQuery('')
+    const { data, isLoading } = useGetCatsQuery(3)
 
     return (
         <section className={styles.breeds}>
@@ -13,33 +13,15 @@ const Breeds: React.FC = () => {
             </h2>
             {!isLoading && (
                 <ul className={styles.breeds__list}>
-                    <li key={data[0].id} className={styles.breeds__item}>
-                        <Link to="/">
+                    {data.map((el: any) => (
+                        <li key={el.id} className={styles.breeds__item}>
                             <CatBreedItem
                                 button={false}
-                                breedId={data[0].id}
-                                name={data[0].name}
+                                breedId={el.id}
+                                name={el.name}
                             />
-                        </Link>
-                    </li>
-                    <li key={data[1].id} className={styles.breeds__item}>
-                        <Link to="/">
-                            <CatBreedItem
-                                button={false}
-                                breedId={data[1].id}
-                                name={data[1].name}
-                            />
-                        </Link>
-                    </li>
-                    <li key={data[2].id} className={styles.breeds__item}>
-                        <Link to="/">
-                            <CatBreedItem
-                                button={false}
-                                breedId={data[2].id}
-                                name={data[2].name}
-                            />
-                        </Link>
-                    </li>
+                        </li>
+                    ))}
                 </ul>
             )}
             <Link to="/list" className={styles.breeds__button}>

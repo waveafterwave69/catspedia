@@ -8,7 +8,7 @@ export const apiSlice = createApi({
     tagTypes: ['Cats'],
     endpoints: (builder) => ({
         getCats: builder.query({
-            query: () => `/breeds`,
+            query: (limit) => `/breeds?limit=${limit}`,
         }),
         getCatsImg: builder.query({
             query: (breedsId) => `/images/search?breed_ids=${breedsId}`,

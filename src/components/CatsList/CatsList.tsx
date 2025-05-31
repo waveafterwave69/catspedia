@@ -3,8 +3,7 @@ import CatBreedItem from '../CatBreedItem/CatBreedItem'
 import styles from './CatsList.module.css'
 
 const CatsList: React.FC = () => {
-    const { data, isLoading } = useGetCatsQuery('')
-
+    let { data, isLoading } = useGetCatsQuery('')
     return (
         <section className={styles.cats}>
             {!isLoading && (

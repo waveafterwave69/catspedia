@@ -4,11 +4,16 @@ import {
     useGetCatsImgQuery,
     useGetCatsQuery,
 } from '../../store/api/apiNews/apiCats'
+import { useEffect } from 'react'
 
 const SingleCat: React.FC = () => {
     const { id } = useParams()
     const { data, isLoading } = useGetCatsQuery('')
     const catImg = useGetCatsImgQuery(id)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     let newData
 
