@@ -5,12 +5,6 @@ import styles from './CatsList.module.css'
 const CatsList: React.FC = () => {
     const { data, isLoading } = useGetCatsQuery('')
 
-    let newData
-
-    if (!isLoading) {
-        newData = data.slice(0, 28)
-    }
-
     return (
         <section className={styles.cats}>
             {!isLoading && (
