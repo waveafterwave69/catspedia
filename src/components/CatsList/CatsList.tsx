@@ -1,4 +1,3 @@
-import { Link } from 'react-router'
 import { useGetCatsQuery } from '../../store/api/apiNews/apiCats'
 import CatBreedItem from '../CatBreedItem/CatBreedItem'
 import styles from './CatsList.module.css'
@@ -6,23 +5,30 @@ import styles from './CatsList.module.css'
 const CatsList: React.FC = () => {
     const { data, isLoading } = useGetCatsQuery('')
 
+    let newData
+
+    if (!isLoading) {
+        newData = data.slice(0, 28)
+    }
+
     return (
         <section className={styles.cats}>
-            <h2 className={styles.cats__title}>cat breeds</h2>
-            <ul className={styles.cats__list}>
-                {!isLoading &&
-                    data.map((cat: any) => (
-                        <li key={cat.id} className={styles.list__item}>
-                            <Link to="/list">
+            {!isLoading && (
+                <>
+                    <h2 className={styles.cats__title}>cat breeds</h2>
+                    <ul className={styles.cats__list}>
+                        {data.map((cat: any) => (
+                            <li key={cat.id} className={styles.list__item}>
                                 <CatBreedItem
                                     breedId={cat.id}
                                     name={cat.name}
                                     button={true}
                                 />
-                            </Link>
-                        </li>
-                    ))}
-            </ul>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
         </section>
     )
 }

@@ -5,6 +5,7 @@ import styles from './CatBreedItem.module.css'
 
 import star from '../../img/star.svg'
 import starNone from '../../img/starNone.svg'
+import { Link } from 'react-router'
 
 const CatBreedItem: React.FC<{
     breedId: string
@@ -23,17 +24,19 @@ const CatBreedItem: React.FC<{
             {!isLoading && (
                 <>
                     <div className={styles.cat}>
-                        <img
-                            src={data[0]?.url}
-                            alt={name}
-                            className={styles.image}
-                        />
+                        <Link to={`/list/${breedId}`}>
+                            <img
+                                src={data[0]?.url}
+                                alt={name}
+                                className={styles.image}
+                            />
+                        </Link>
                         {button && (
                             <img
                                 onClick={addToFav}
                                 src={fav ? star : starNone}
                                 className={styles.star}
-                                style={{ width: '35px' }}
+                                style={{ width: '35px', cursor: 'pointer' }}
                             ></img>
                         )}
                         <h3 className={styles.title}>{name}</h3>
