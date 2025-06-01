@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Breeds from '../../components/Breeds/Breeds'
 import Promo from '../../components/Promo/Promo'
+import WayToFav from '../../components/WayToFav/WayToFav'
 
 const HomePage: React.FC = () => {
     useEffect(() => {
@@ -11,6 +12,7 @@ const HomePage: React.FC = () => {
         <>
             <Promo />
             <Breeds />
+            <WayToFav />
         </>
     )
 }

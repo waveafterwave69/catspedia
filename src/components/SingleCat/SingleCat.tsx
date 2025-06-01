@@ -52,7 +52,7 @@ const SingleCat: React.FC = () => {
                             </button>
                         </div>
                         <img
-                            src={catImg.data[0].url}
+                            src={catImg && catImg.data[0].url}
                             alt="cat"
                             className={styles.row__img}
                         />

@@ -36,6 +36,13 @@
     height: 340px;
 }
 
+.breeds__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
 .breeds__button {
     margin: 0 auto;
     display: flex;
@@ -53,6 +60,13 @@
     background-color: var(--color-green);
     color: var(--color-black);
 }
+
+.title {
+    color: var(--color-black);
+    font-weight: 400;
+    font-size: 22px;
+}
+
 
 @media (max-width: 1440px) {
     .breeds__item img {
@@ -130,6 +144,10 @@
     .breeds__item img {
         width: 250px;
         height: 220px;
+    }
+
+    .title {
+        font-size: 18px;
     }
 
     .breeds__list {
