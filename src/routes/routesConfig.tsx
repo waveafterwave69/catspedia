@@ -1,4 +1,5 @@
 import SingleCat from '../components/SingleCat/SingleCat'
+import FavPage from '../pages/FavPage/FavPage'
 import HomePage from '../pages/HomePage/HomePage'
 import ListPage from '../pages/ListPage/ListPage'
 
@@ -18,13 +19,8 @@ export const routesConfig = [
         url: '/list/:id',
     },
     {
-        page: <HomePage />,
-        url: '/random',
-        isNav: 'Random cat',
-    },
-    {
-        page: <HomePage />,
+        page: <FavPage />,
         url: '/favorites',
-        isNav: 'Favorites',
+        // isNav: 'Favorites',
     },
 ]

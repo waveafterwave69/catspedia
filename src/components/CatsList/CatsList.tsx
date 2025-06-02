@@ -13,6 +13,7 @@ const CatsList: React.FC = () => {
                         {data.map((cat: any) => (
                             <li key={cat.id} className={styles.list__item}>
                                 <CatBreedItem
+                                    newData={data}
                                     breedId={cat.id}
                                     name={cat.name}
                                     button={true}

@@ -6,18 +6,30 @@ import styles from './CatBreedItem.module.css'
 import star from '../../img/star.svg'
 import starNone from '../../img/starNone.svg'
 import { Link } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItemToFav, removeItemFromFav } from '../../store/slices/favSlice'
 
 const CatBreedItem: React.FC<{
     breedId: string
     name: string
     button: boolean
-}> = ({ breedId, name, button }) => {
+    newData: any
+}> = ({ breedId, name, button, newData }) => {
     const { data, isLoading } = useGetCatsImgQuery(breedId)
     const [fav, setFav] = useState(false)
+    const dispatch = useDispatch()
+    const currData: any = newData.filter((el: any) => el.id === breedId)
+    const handleAddToFav = () => {
+        if (!fav) {
+            dispatch(addItemToFav(currData[0]))
+        } else {
+            dispatch(removeItemFromFav({ id: breedId }))
+        }
 
-    const addToFav = () => {
         setFav((prev) => !prev)
     }
+    const favorites = useSelector((state: any) => state.fav)
+    console.log(favorites)
 
     return (
         <div>
@@ -33,7 +45,7 @@ const CatBreedItem: React.FC<{
                         </Link>
                         {button && (
                             <img
-                                onClick={addToFav}
+                                onClick={handleAddToFav}
                                 src={fav ? star : starNone}
                                 className={styles.star}
                                 style={{ width: '35px', cursor: 'pointer' }}
@@ -42,7 +54,7 @@ const CatBreedItem: React.FC<{
                         <h3 className={styles.title}>{name}</h3>
                         {button && (
                             <button
-                                onClick={addToFav}
+                                onClick={handleAddToFav}
                                 className={
                                     fav
                                         ? `${styles.cats__button} ${styles.active}`
