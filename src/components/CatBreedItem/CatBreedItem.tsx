@@ -1,39 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useGetCatsImgQuery } from '../../store/api/apiNews/apiCats'
+import { Link } from 'react-router-dom' // Correct import for react-router-dom
 
 import styles from './CatBreedItem.module.css'
 
 import star from '../../img/star.svg'
 import starNone from '../../img/starNone.svg'
-import { Link } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemToFav, removeItemFromFav } from '../../store/slices/favSlice'
 
-const CatBreedItem: React.FC<{
+interface CatBreedItemProps {
     breedId: string
     name: string
     button: boolean
-    newData: any
-}> = ({ breedId, name, button, newData }) => {
+    newData: any[]
+}
+
+const CatBreedItem: React.FC<CatBreedItemProps> = ({
+    breedId,
+    name,
+    button,
+    newData,
+}) => {
     const { data, isLoading } = useGetCatsImgQuery(breedId)
-    const [fav, setFav] = useState(false)
+    const [isFav, setIsFav] = useState(false)
     const dispatch = useDispatch()
-    const currData: any = newData.filter((el: any) => el.id === breedId)
+
+    const currData: any = newData
+        ? newData.filter((el: any) => el.id === breedId)
+        : []
+
+    const favorites = useSelector((state: any) => state.fav.fav)
+
+    useEffect(() => {
+        const isInFavorites = favorites.some((item: any) => item.id === breedId)
+        setIsFav(isInFavorites)
+    }, [breedId, favorites])
+
     const handleAddToFav = () => {
-        if (!fav) {
-            dispatch(addItemToFav(currData[0]))
+        if (!isFav) {
+            if (currData.length > 0) {
+                dispatch(addItemToFav(currData[0]))
+            }
         } else {
             dispatch(removeItemFromFav({ id: breedId }))
         }
 
-        setFav((prev) => !prev)
+        setIsFav((prev) => !prev)
     }
-    const favorites = useSelector((state: any) => state.fav)
-    console.log(favorites)
 
     return (
         <div>
-            {!isLoading && (
+            {!isLoading && data && data.length > 0 && (
                 <>
                     <div className={styles.cat}>
                         <Link to={`/list/${breedId}`}>
@@ -46,22 +64,27 @@ const CatBreedItem: React.FC<{
                         {button && (
                             <img
                                 onClick={handleAddToFav}
-                                src={fav ? star : starNone}
+                                src={isFav ? star : starNone}
                                 className={styles.star}
                                 style={{ width: '35px', cursor: 'pointer' }}
-                            ></img>
+                                alt={
+                                    isFav
+                                        ? 'Remove from favorites'
+                                        : 'Add to favorites'
+                                }
+                            />
                         )}
                         <h3 className={styles.title}>{name}</h3>
                         {button && (
                             <button
                                 onClick={handleAddToFav}
                                 className={
-                                    fav
+                                    isFav
                                         ? `${styles.cats__button} ${styles.active}`
                                         : `${styles.cats__button}`
                                 }
                             >
-                                {fav ? 'Remove from Stars' : 'Add to Stars'}
+                                {isFav ? 'Remove from Stars' : 'Add to Stars'}
                             </button>
                         )}
                     </div>

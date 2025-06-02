@@ -4,21 +4,48 @@ import {
     useGetCatsImgQuery,
     useGetCatsQuery,
 } from '../../store/api/apiNews/apiCats'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItemToFav, removeItemFromFav } from '../../store/slices/favSlice'
 
 const SingleCat: React.FC = () => {
     const { id } = useParams()
     const { data, isLoading } = useGetCatsQuery('')
     const catImg = useGetCatsImgQuery(id)
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    const [isFav, setIsFav] = useState(false)
+    const dispatch = useDispatch()
 
     let newData
 
     if (!isLoading) {
         newData = data.filter((el: any) => el.id === id)
+    }
+
+    const currData: any = newData
+        ? newData.filter((el: any) => el.id === id)
+        : []
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    const favorites = useSelector((state: any) => state.fav.fav)
+
+    useEffect(() => {
+        const isInFavorites = favorites.some((item: any) => item.id === id)
+        setIsFav(isInFavorites)
+    }, [id, favorites])
+
+    const handleAddToFav = () => {
+        if (!isFav) {
+            if (currData.length > 0) {
+                dispatch(addItemToFav(currData[0]))
+            }
+        } else {
+            dispatch(removeItemFromFav({ id: id }))
+        }
+
+        setIsFav((prev) => !prev)
     }
 
     return (
@@ -47,8 +74,15 @@ const SingleCat: React.FC = () => {
                             >
                                 Wikipedia
                             </a>
-                            <button className={styles.row__button}>
-                                Add to Stars
+                            <button
+                                onClick={handleAddToFav}
+                                className={
+                                    isFav
+                                        ? `${styles.row__button} ${styles.active}`
+                                        : `${styles.row__button}`
+                                }
+                            >
+                                {isFav ? 'Remove from Stars' : 'Add to Stars'}
                             </button>
                         </div>
                         <img

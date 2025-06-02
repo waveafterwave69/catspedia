@@ -45,10 +45,7 @@ const favSlice = createSlice({
         addItemToFav: (state, action: PayloadAction<FavItem>) => {
             state.fav.push(action.payload)
         },
-        removeItemFromFav: (
-            state,
-            action: PayloadAction<{ id: string | number }>
-        ) => {
+        removeItemFromFav: (state, action: PayloadAction<{ id: any }>) => {
             state.fav = state.fav.filter(
                 (item) => item.id !== action.payload.id
             )

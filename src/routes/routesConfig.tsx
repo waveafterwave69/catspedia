@@ -21,6 +21,6 @@ export const routesConfig = [
     {
         page: <FavPage />,
         url: '/favorites',
-        // isNav: 'Favorites',
+        isNav: 'Favorites',
     },
 ]
