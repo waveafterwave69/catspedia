@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { routesConfig } from './routes/routesConfig'
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 const App: React.FC = () => {
     return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
                     ))}
                 </Routes>
             </div>
+            <Footer />
         </>
     )
 }

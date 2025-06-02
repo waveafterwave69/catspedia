@@ -1,0 +1,77 @@
+.footer {
+    margin-top: 325px;
+    padding: 60px 0px 100px;
+    background-color: var(--color-purple);
+}
+
+.footer__text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.logo {
+    width: 118px;
+}
+
+.git {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.git p {
+    font-weight: 700;
+    font-size: 16px;
+    color: #101010;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        margin-top: 300px;
+        padding: 40px 0px 80px;
+    }
+
+    .footer__text {
+        row-gap: 25px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .git {
+        column-gap: 5px;
+    }
+
+    .git p {
+        font-size: 14px;
+    }
+
+    .git img {
+        width: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .footer {
+        margin-top: 225px;
+        padding: 20px 0px 70px;
+    }
+
+    .footer__text {
+        row-gap: 20px;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .git {
+        column-gap: 5px;
+    }
+
+    .git img {
+        width: 28px;
+    }
+}
