@@ -66,16 +66,6 @@
         margin-bottom: 50px;
     }
 
-    .cats__title::after {
-        content: '';
-        width: 105px;
-        z-index: -1;
-        height: 38px;
-        position: absolute;
-        background-color: var(--color-green);
-        right: 8px;
-        top: 5px;
-    }
 
     .cats__list {
         column-gap: 10px;
