@@ -66,7 +66,11 @@ const CatBreedItem: React.FC<CatBreedItemProps> = ({
                                 onClick={handleAddToFav}
                                 src={isFav ? star : starNone}
                                 className={styles.star}
-                                style={{ width: '35px', cursor: 'pointer' }}
+                                style={{
+                                    width: '35px',
+                                    height: '35px',
+                                    cursor: 'pointer',
+                                }}
                                 alt={
                                     isFav
                                         ? 'Remove from favorites'
