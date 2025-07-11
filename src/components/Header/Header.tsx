@@ -3,7 +3,7 @@ import styles from './Header.module.css'
 
 import logo from '../../img/logo.svg'
 import { routesConfig } from '../../routes/routesConfig'
-import { Link, NavLink } from 'react-router-dom' // исправил импорт на react-router-dom
+import { Link, NavLink } from 'react-router-dom'
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false)

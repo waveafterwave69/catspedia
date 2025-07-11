@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useGetCatsImgQuery } from '../../store/api/apiNews/apiCats'
-import { Link } from 'react-router-dom' // Correct import for react-router-dom
+import { Link } from 'react-router-dom'
 
 import styles from './CatBreedItem.module.css'
 
