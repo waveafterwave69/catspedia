@@ -18,6 +18,12 @@ body {
     margin: 0 auto;
 }
 
+:focus-visible,
+a:focus-visible {
+    outline: auto;
+}
+
+
 @media (max-width: 500px) {
     .container {
         padding: 0 var(--container-padding-mobile-x);
